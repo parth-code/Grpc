@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+// calculator service definition
+service Calculator {
+    // definition of all the functions
+    rpc Add(CalcQuery) returns (CalcResponse) {}
+    rpc Subtract(CalcQuery) returns (CalcResponse) {}
+    rpc Multiply(CalcQuery) returns (CalcResponse) {}
+    rpc Divide(CalcQuery) returns (CalcResponse) {}
+}
+
+// The request message containing the 2 numbers and operator
+message CalcQuery {
+    double number1 = 1;
+    double number2 = 2;
+    string operator = 3;
+}
+
+// The response message containing the result and error function with original message
+message CalcResponse {
+    double number1 = 1;
+    double number2 = 2;
+    double result = 3;
+    string errormessage = 4;
+}
